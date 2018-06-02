@@ -19,18 +19,17 @@ public class Combiner : MonoBehaviour {
 	}
     public ItemTemplate CheckRecipes()
     {
-        if (Slot_A.transform.childCount != 0 && Slot_B.transform.childCount != 0)
+
+        ItemTemplate A = Slot_A.transform.GetChild(0).GetComponent<ItemTemplate>();
+        ItemTemplate B = Slot_B.transform.GetChild(0).GetComponent<ItemTemplate>();
+        foreach (var recipe in Recipes)
         {
-            ItemTemplate A = Slot_A.transform.GetChild(0).GetComponent<ItemTemplate>();
-            ItemTemplate B = Slot_B.transform.GetChild(0).GetComponent<ItemTemplate>();
-            foreach (var recipe in Recipes)
+            if (recipe.recipe1 == A && recipe.recipe2 == B)
             {
-                if (recipe.recipe1 == A && recipe.recipe2 == B)
-                {
-                    return recipe;
-                }
+                return recipe;
             }
-            return null;
         }
+        return null;
+
     }
 }
