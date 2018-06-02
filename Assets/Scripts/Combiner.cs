@@ -15,18 +15,24 @@ public class Combiner : MonoBehaviour {
     {
         if (Slot_A.transform.childCount > 1 && Slot_B.transform.childCount > 1)
         {
-            ItemTemplate Result = CheckRecipes();
-            if (Result != null)
+            if (Slot_C.transform.childCount < 2)
             {
-                Instantiate(ItemPrefeb) as GameObject;
+                ItemTemplate Result = CheckRecipes();
+                if (Result != null)
+                {
+                    GameObject combineResult = Instantiate(ItemPrefeb) as GameObject;
+                    combineResult.GetComponent<ItemInfo>().Instantiate(Result);
+                    combineResult.transform.parent = Slot_C.transform;
+                    combineResult.transform.localPosition = Vector3.zero;
+                } 
             }
         }
     }
     public ItemTemplate CheckRecipes()
     {
         
-        ItemTemplate A = Slot_A.transform.GetChild(1).GetComponent<ItemTemplate>();
-        ItemTemplate B = Slot_B.transform.GetChild(1).GetComponent<ItemTemplate>();
+        ItemTemplate A = Slot_A.transform.GetChild(1).GetComponent<ItemInfo>().Item;
+        ItemTemplate B = Slot_B.transform.GetChild(1).GetComponent<ItemInfo>().Item;
         foreach (var recipe in Recipes)
         {
             if (recipe.recipe1 == A && recipe.recipe2 == B)

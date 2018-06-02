@@ -5,7 +5,7 @@ using UnityEngine;
 public class CombinerSlot : MonoBehaviour {
 
     private GameObject Item;
-    public PlayerInventory inv;
+    public GameObject Combiner;
     public void DropItem(GameObject _item)
     {
         if (Item != null)
@@ -16,6 +16,7 @@ public class CombinerSlot : MonoBehaviour {
         }
         Item = _item;
         Item.transform.parent = transform;
+        Combiner.GetComponent<Combiner>().Combine();
     }
 
 }

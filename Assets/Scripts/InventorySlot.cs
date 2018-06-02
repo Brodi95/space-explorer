@@ -32,7 +32,8 @@ public class InventorySlot : MonoBehaviour {
     {
         
     }
+    
 
-    
-    
+
+
 }
