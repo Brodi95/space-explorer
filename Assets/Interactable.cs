@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour {
 
     public void Interact()
     {
-        
+        PlayerInventory.inv.FindFirstFreeSlot().AddItem(item);
         Destroy(gameObject);
     }
 }
