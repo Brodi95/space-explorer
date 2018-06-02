@@ -26,14 +26,11 @@ public class Bullet : MonoBehaviour {
         }
     }
 
-<<<<<<< HEAD
     private void Awake()
     {
         startPos = transform.position;
     }
 
-=======
->>>>>>> 37ef3f063cd3d1484d836f2865d671d671ed97e4
     private void FixedUpdate()
     {
         if (!shoot)
@@ -41,7 +38,6 @@ public class Bullet : MonoBehaviour {
 
         if (Vector2.Distance(startPos, transform.position) >= maxDistance)
         {
-            Debug.Log("die");
             Destroy(gameObject);
         }
 
@@ -49,7 +45,6 @@ public class Bullet : MonoBehaviour {
         transform.position += moveDirection;
     }
 
-<<<<<<< HEAD
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == gameObject)
@@ -62,6 +57,5 @@ public class Bullet : MonoBehaviour {
         }
         
     }
-=======
->>>>>>> 37ef3f063cd3d1484d836f2865d671d671ed97e4
+
 }

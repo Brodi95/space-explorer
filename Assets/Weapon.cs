@@ -29,12 +29,9 @@ public class Weapon : MonoBehaviour {
             x = Player.player.facingRight ? 1 : -1;
         }
 
-<<<<<<< HEAD
+
         var bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity).GetComponent<Bullet>();
-=======
-        var bullet = Instantiate(BulletPrefab).GetComponent<Bullet>();
-        bullet.startPos = transform.position;
->>>>>>> 37ef3f063cd3d1484d836f2865d671d671ed97e4
+
         bullet.Direction = new Vector2(x, y);
     }
 }
