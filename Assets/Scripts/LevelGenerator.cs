@@ -36,6 +36,7 @@ public class LevelGenerator : MonoBehaviour {
 
         //if (_pixelColor.a == 0)
         //{
+        //    _pixelColor.r = 2;
         //    //pixel is transparent ignore it lol
         //    return;
         //}
