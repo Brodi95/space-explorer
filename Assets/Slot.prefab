@@ -40,6 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41034f4e884114f49b74c6efa56d27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot: {fileID: 0}
+  itemPrefab: {fileID: 1267979996740348, guid: b0c71f35a38bcd944a880d700cd502f4, type: 2}
+  amount: 0
 --- !u!114 &114815582925125826
 MonoBehaviour:
   m_ObjectHideFlags: 1

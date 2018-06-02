@@ -18,7 +18,7 @@ public class Combiner : MonoBehaviour {
             ItemTemplate Result = CheckRecipes();
             if (Result != null)
             {
-                Instantiate(ItemPrefeb) as GameObject;
+                //Instantiate(ItemPrefeb) as GameObject;
             }
         }
     }
