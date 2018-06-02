@@ -284,7 +284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295badee136089e41a0a644f90630590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HungerBar: {fileID: 0}
+  HungerBar: {fileID: 224364942201263150}
+  HungerPrefab: {fileID: 1692094544446684, guid: 093de3a4921cabf40a3db4807a9ef6ad,
+    type: 2}
+  HalfHungerPrefab: {fileID: 1478021605244616, guid: 0f85f9272eb9f004889fcd811260c564,
+    type: 2}
   MaxHealth: 100
   CurrentHealth: 0
   MaxHunger: 0

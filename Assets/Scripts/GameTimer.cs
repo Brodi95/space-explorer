@@ -11,11 +11,11 @@ public class GameTimer : MonoBehaviour {
     public static GameTimer Timer;
 
     private int daysAlive = 0;
-    private const int hourInterval = 3;
+    private const int hourInterval = 30;
     private int currentTime = 0;
     private float timer = 0;
 
-    private const float hunger = 0.5f;
+    private const float hunger = 1f;
 
     public delegate void Night();
     public Night NightMode;

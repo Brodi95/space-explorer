@@ -7,9 +7,13 @@ public class Player : MonoBehaviour {
     #region Variables
 
     public static Player player;
+    public bool facingRight = false;
+    public LayerMask layerMask;
 
     public Transform HungerBar;
     private List<GameObject> hungerGOs;
+    public GameObject HungerPrefab;
+    public GameObject HalfHungerPrefab;
 
     public float MaxHealth = 100f;
     public float CurrentHealth;
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour {
     private void Awake()
     {
         player = this;
+        hungerGOs = new List<GameObject>();
     }
 
     private void Start()
@@ -43,6 +48,11 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F))
             ApplyDamage(10f);
 
+        if (Input.GetKeyDown(KeyCode.R))
+            ApplyHunger(1f);
+
+        if (Input.GetKeyDown(KeyCode.E))
+            Interact();
 
     }
 
@@ -74,7 +84,8 @@ public class Player : MonoBehaviour {
             CurrentHunger = MaxHunger;
             ApplyHungerDamage();
         }
-        
+
+        UpdateHungerSymbol();
     }
 
     private IEnumerator ApplyHungerDamage()
@@ -85,6 +96,42 @@ public class Player : MonoBehaviour {
             ApplyDamage(hungerDamage);
         }
         
+    }
+
+    private void UpdateHungerSymbol()
+    {
+        int hunger = Mathf.FloorToInt(CurrentHunger);
+        Debug.Log(hunger);
+        if (hunger % 2 != 0 && hunger > hungerGOs.Count)
+        {
+            GameObject go = Instantiate(HalfHungerPrefab, HungerBar);
+            hungerGOs.Add(go);
+        }
+        else if (hunger % 2 == 0 && hunger != 0)
+        {
+            //Destroy half hunger symbol
+            Destroy(hungerGOs[hungerGOs.Count - 1]);
+            hungerGOs.RemoveAt(hungerGOs.Count - 1);
+            GameObject go = Instantiate(HungerPrefab, HungerBar);
+            hungerGOs.Add(go);
+        }
+    }
+
+    private void Interact()
+    {
+        var direction = facingRight ? Vector2.right : -Vector2.right;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 0.5f, layerMask);
+        Debug.DrawRay(transform.position, direction, Color.red, 2f);
+        if (hit.collider != null && hit.collider.gameObject != gameObject)
+        {
+            Debug.Log(hit.collider.gameObject);
+            var target = hit.collider.GetComponent<Interactable>();
+            if(target != null)
+            {
+                target.Interact();
+            }
+            
+        }
     }
 
     public void Dead()

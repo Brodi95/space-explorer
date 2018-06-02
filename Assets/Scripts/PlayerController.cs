@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float Speed;
 
-    private bool facingRight = false;
+
 
     private Player player;
 
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
         float vertical = Input.GetAxis("Vertical");
 
         // Flip the player if he is facing right but moving left
-        if((horizontal < 0 && facingRight) || (horizontal > 0 && !facingRight)) {
+        if((horizontal < 0 && player.facingRight) || (horizontal > 0 && !player.facingRight)) {
             player.FlipCharacter();
         }
 
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 
     void Flip()
     {
-        facingRight = !facingRight;
+        player.facingRight = !player.facingRight;
         transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
     }
 }
