@@ -10,4 +10,6 @@ public class ItemTemplate : ScriptableObject{
 
     public ItemTemplate recipe1;
     public ItemTemplate recipe2;
+
+    
 }

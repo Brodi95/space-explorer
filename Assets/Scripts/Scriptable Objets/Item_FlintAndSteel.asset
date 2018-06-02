@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0690f2691708664db7970a81da24cfe, type: 3}
-  m_Name: TestItem2
+  m_Name: Item_FlintAndSteel
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  image: {fileID: 0}
-  recipe1: {fileID: 0}
-  recipe2: {fileID: 0}
+  name: Flint
+  description: Clap 'em together to make Fire
+  image: {fileID: 21300000, guid: d099c45db64abe44b9e3bae52a939a8a, type: 3}
+  recipe1: {fileID: 11400000, guid: dd83c56f43500a74b8eb9a8bf889dc06, type: 2}
+  recipe2: {fileID: 11400000, guid: dd83c56f43500a74b8eb9a8bf889dc06, type: 2}

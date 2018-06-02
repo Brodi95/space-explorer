@@ -13,11 +13,11 @@ public class ItemDropHandler : MonoBehaviour,IDropHandler {
         RectTransform Slot_B_Rect = Slot_B.transform as RectTransform;
         if (RectTransformUtility.RectangleContainsScreenPoint(Slot_A_Rect,Input.mousePosition))
         {
-            Debug.Log("Found Slot A");
+            Slot_A.GetComponent<CombinerSlot>().DropItem(this.gameObject);
         }
         else if (RectTransformUtility.RectangleContainsScreenPoint(Slot_B_Rect, Input.mousePosition))
         {
-            Debug.Log("Found Slot B");
+            Slot_B.GetComponent<CombinerSlot>().DropItem(this.gameObject);
         }
         else
         {
