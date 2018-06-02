@@ -13,6 +13,7 @@ public class InventorySlot : MonoBehaviour {
         item = Instantiate(itemPrefab) as GameObject;
         item.GetComponent<ItemInfo>().Instantiate(_itemSO);
         item.transform.parent = transform;
+        item.transform.localPosition = Vector3.zero;
         
 
     }
