@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour {
-    private Color maskColor;
+    public Color maskColor;
+    public SpriteRenderer spriteRenderer;
 	// Use this for initialization
 	void Start () {
-        Color maskColor = GetComponent<SpriteRenderer>().color;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        maskColor = spriteRenderer.color;
         GameTimer.Timer.DayMode += SetDay;
         GameTimer.Timer.NightMode += SetNight;
+        maskColor.a = 0.6f;
     }
 	
 	// Update is called once per frame
@@ -19,10 +22,12 @@ public class DayNightCycle : MonoBehaviour {
    public void SetNight()
     {
         maskColor.a += 0.2f;
+        spriteRenderer.color = maskColor;
     }
 
     public void SetDay()
     {
         maskColor.a -= 0.2f;
+        spriteRenderer.color = maskColor;
     }
 }
