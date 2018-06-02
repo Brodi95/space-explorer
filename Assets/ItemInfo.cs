@@ -8,11 +8,16 @@ public class ItemInfo : MonoBehaviour {
     public Image img;
 	// Use this for initialization
 	void Start () {
-        img.sprite = Item.image;
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+    public void Instantiate(ItemTemplate _itemSO)
+    {
+        Item = _itemSO;
+        img.sprite = Item.image;
+    }
 }

@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 61220373967118494}
   - component: {fileID: 114229522420641586}
   - component: {fileID: 114496547084346610}
+  - component: {fileID: 50416660832248568}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -148,6 +149,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50416660832248568
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959789120951884}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &61220373967118494
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -284,6 +305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295badee136089e41a0a644f90630590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
   HungerBar: {fileID: 224364942201263150}
   HungerPrefab: {fileID: 1692094544446684, guid: 093de3a4921cabf40a3db4807a9ef6ad,
     type: 2}
@@ -291,7 +316,7 @@ MonoBehaviour:
     type: 2}
   MaxHealth: 100
   CurrentHealth: 0
-  MaxHunger: 0
+  MaxHunger: 10
   CurrentHunger: 0
 --- !u!114 &114507822890033714
 MonoBehaviour:
