@@ -7,6 +7,7 @@ public class Combiner : MonoBehaviour {
     public GameObject Slot_A;
     public GameObject Slot_B;
     public GameObject Slot_C;
+    public GameObject ItemPrefeb;
     public List<ItemTemplate> Recipes;
 
 	
