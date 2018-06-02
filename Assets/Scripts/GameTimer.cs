@@ -29,9 +29,9 @@ public class GameTimer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
@@ -46,6 +46,14 @@ public class GameTimer : MonoBehaviour {
     private void NextHour()
     {
         currentTime += 1;
+        if(currentTime == 5 || currentTime == 6 || currentTime == 7)
+        {
+            DayMode();
+        }
+        else if(currentTime == 19 || currentTime == 20 || currentTime == 21)
+        {
+            NightMode();
+        }
         hourText.text = currentTime.ToString();
         Player.player.ApplyHunger(hunger);
         if (currentTime == 24)

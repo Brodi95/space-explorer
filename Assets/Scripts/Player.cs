@@ -8,6 +8,9 @@ public class Player : MonoBehaviour {
 
     public static Player player;
 
+    public Transform HungerBar;
+    private List<GameObject> hungerGOs;
+
     public float MaxHealth = 100f;
     public float CurrentHealth;
 
