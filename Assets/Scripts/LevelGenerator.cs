@@ -45,6 +45,7 @@ public class LevelGenerator : MonoBehaviour {
         {
             if (colorMapping.color.Equals(_pixelColor))
             {
+                Debug.Log(" Color Red Blue Green" + _pixelColor.r + _pixelColor.b + _pixelColor.g);
                 (Instantiate(colorMapping.prefab, _position, Quaternion.identity)as GameObject).transform.parent = transform;
             }
         }
