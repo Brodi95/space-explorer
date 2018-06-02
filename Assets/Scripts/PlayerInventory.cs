@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour {
     public GameObject slotGO;
 
     private int inventorySize = 24;
-    public GameObject stone;
+    public ItemTemplate stone;
     public GameObject[] Inventory;
 
 	// Use this for initialization
@@ -25,14 +25,14 @@ public class PlayerInventory : MonoBehaviour {
             slotCount++;
             
         }
-        Inventory[0].GetComponent<InventorySlot>().AddItem(stone);
-        FindFirstFreeSlot().GetComponent<InventorySlot>().AddItem(stone);
-        FindFirstFreeSlot().GetComponent<InventorySlot>().AddItem(stone);
-        FindFirstFreeSlot().GetComponent<InventorySlot>().AddItem(stone);
-        FindFirstFreeSlot().GetComponent<InventorySlot>().AddItem(stone);
+
+        FindFirstFreeSlot().AddItem(stone);
+       
+       
+       
 
     }
-	public GameObject FindFirstFreeSlot()
+	public InventorySlot FindFirstFreeSlot()
     {
         int slotCount = 0;
         foreach (var item in Inventory)
@@ -41,7 +41,7 @@ public class PlayerInventory : MonoBehaviour {
             if (Inventory[slotCount].transform.childCount == 0)
             {
                 Debug.Log("empty slot found "+slotCount);
-                return Inventory[slotCount];
+                return Inventory[slotCount].GetComponent<InventorySlot>();
             }
             slotCount++;
         }

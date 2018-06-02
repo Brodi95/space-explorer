@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InventorySlot : MonoBehaviour {
-    public GameObject item;
+    private GameObject item;
     public GameObject slot;
+    public GameObject itemPrefab;
     public int amount;
 
-	public void AddItem(GameObject _item)
+	public void AddItem(ItemTemplate _itemSO)
     {
-        if (item == null)
-        {
-            item = _item;
-            Instantiate(item,transform);
-            amount = 1;
-        }
-        else if (item = _item)
-        {
-            amount++;
-        }
+        item = Instantiate(itemPrefab) as GameObject;
+        item.GetComponent<ItemInfo>().Instantiate(_itemSO);
+        item.transform.parent = transform;
+        
 
     }
     public void RemoveItem()

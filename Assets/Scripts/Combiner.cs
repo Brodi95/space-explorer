@@ -6,31 +6,34 @@ public class Combiner : MonoBehaviour {
 
     public GameObject Slot_A;
     public GameObject Slot_B;
+    public GameObject Slot_C;
     public List<ItemTemplate> Recipes;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void Combine()
+    {
+        if (Slot_A.transform.childCount > 1 && Slot_B.transform.childCount > 1)
+        {
+            ItemTemplate Result = CheckRecipes();
+            if (Result != null)
+            {
+                
+            }
+        }
+    }
     public ItemTemplate CheckRecipes()
     {
-        if (Slot_A.transform.childCount != 0 && Slot_B.transform.childCount != 0)
+        
+        ItemTemplate A = Slot_A.transform.GetChild(1).GetComponent<ItemTemplate>();
+        ItemTemplate B = Slot_B.transform.GetChild(1).GetComponent<ItemTemplate>();
+        foreach (var recipe in Recipes)
         {
-            ItemTemplate A = Slot_A.transform.GetChild(0).GetComponent<ItemTemplate>();
-            ItemTemplate B = Slot_B.transform.GetChild(0).GetComponent<ItemTemplate>();
-            foreach (var recipe in Recipes)
+            if (recipe.recipe1 == A && recipe.recipe2 == B)
             {
-                if (recipe.recipe1 == A && recipe.recipe2 == B)
-                {
-                    return recipe;
-                }
+                return recipe;
             }
-            return null;
         }
+        return null;
+        
     }
 }
